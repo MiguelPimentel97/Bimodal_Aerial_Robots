@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+<!-- Macro for the inertia of a Wheel (bike model) -->
+<!-- M = mass of wheel, m = mass of spokes, r1 r2 = radius, h = thickness, n = no. spokes-->
+  <xacro:macro name="wheel_inertia" params="M m r1 r2 h n">
+    <inertia  ixx="${M*(3*(r1*r1+r2*r2)+h*h)/12}" ixy = "0" ixz = "0"
+              iyy="${M*(r1*r1+r2*r2)/2 + n*(m*h*h/3)}" iyz = "0"
+              izz="${M*(3*(r1*r1+r2*r2)+h*h)/12}" /> 
+  </xacro:macro>
+
+  <xacro:macro name="cylinder_inertia" params="m r h">
+    <inertia  ixx="${m*(3*r*r+h*h)/12}" ixy = "0" ixz = "0"
+              iyy="${m*(3*r*r+h*h)/12}" iyz = "0"
+              izz="${m*r*r/2}" /> 
+  </xacro:macro>
+  
+  <property name="M_PI" value="3.14159"/>
+
+  <xacro:macro name="drone_wheel" params="robot_namespace wheel_prefix mesh_name parent flip *joint_pose">
+
+    <!-- Wheel link -->
+
+    <link name="${wheel_prefix}_wheel_link">
+
+      <visual>      
+        <geometry>
+          <mesh filename="${mesh_name}" />
+        </geometry>        
+        <origin xyz="0 0 0" rpy="${flip*M_PI/2} 0 0" />
+        <material name="Grey" />
+      </visual>
+
+      <collision>
+        <origin xyz="0 0 0" rpy="${flip*M_PI/2} 0 0" />
+        <geometry>
+          <cylinder length="${wheel_width}" radius="${outer_radius}" />
+        </geometry>
+      </collision>
+
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="${wheel_mass}" />
+        <wheel_inertia  M="${wheel_mass}" m="${spoke_mass}" r1="${outer_radius}" r2="${inner_radius}" h="${wheel_width}" n="${spokes}"/>
+      </inertial>
+
+    </link>
+
+    <!-- Wheel to stand joint. This joint is continuous so that the wheel can
+    spin freely -->
+
+    <joint name="${wheel_prefix}_wheel" type="continuous">
+      <parent link="${parent}"/>
+      <child link="${wheel_prefix}_wheel_link"/>
+      <xacro:insert_block name="joint_pose"/>
+      <axis xyz="0 1 0" rpy="0 0 0" />
+    </joint>
+
+    <!-- This block provides the simulator (Gazebo) with information on a few additional
+    physical properties. See http://gazebosim.org/tutorials/?tut=ros_urdf for more -->
+    <gazebo reference="${wheel_prefix}_wheel_link">
+      <kp value="1000000.0" />
+      <kd value="1.0" />
+      <material>Gazebo/Grey</material>
+    </gazebo> 
+
+  </xacro:macro>
+</robot>

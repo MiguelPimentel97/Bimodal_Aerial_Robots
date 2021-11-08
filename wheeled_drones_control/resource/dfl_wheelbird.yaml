@@ -1,0 +1,21 @@
+# DFL controller gains 
+
+flight_gains:
+  position_proportional: {x: 1.7, y: 1.7}
+  position_derivative: {x: 2.05, y: 2.05}
+
+  dfl_0: {z: 8.5, phi: 22, theta: 22, psi: 15}
+  dfl_1: {z: 4.4, phi: 8, theta: 8, psi: 6}
+
+ground_gains:
+  position: {p: 0.7}
+  velocity: {p: 4.8}
+  valves: {a: 0.8, theta: 0.8}
+
+  dfl_0: {phi: 19, theta: 19, psi: 14.6}
+  dfl_1: {phi: 10, theta: 10, psi: 7.5}
+
+inclined_gains:
+  position: {p: 1.1, d: 0, i: 1.0}
+  velocity: {p: 5.5, d: 0, i: 0}
+  valves: {a: 1.5, theta: 0.8}

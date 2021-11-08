@@ -1,0 +1,27 @@
+{
+    "configurations": [
+        {
+            "browse": {
+                "databaseFilename": "",
+                "limitSymbolsToIncludedHeaders": true
+            },
+            "includePath": [
+                "/home/miguel/catkin_ws/devel/include/**",
+                "/opt/ros/melodic/include/**",
+                "/home/miguel/catkin_ws/src/mav_comm/mav_msgs/include/**",
+                "/home/miguel/catkin_ws/src/mav_comm/mav_planning_msgs/include/**",
+                "/home/miguel/catkin_ws/src/CrazyS/rotors_control/include/**",
+                "/home/miguel/catkin_ws/src/CrazyS/rotors_gazebo/include/**",
+                "/home/miguel/catkin_ws/src/CrazyS/rotors_gazebo_plugins/include/**",
+                "/home/miguel/catkin_ws/src/CrazyS/rotors_joy_interface/include/**",
+                "/usr/include/**"
+            ],
+            "name": "ROS",
+            "intelliSenseMode": "gcc-x64",
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "gnu11",
+            "cppStandard": "gnu++14"
+        }
+    ],
+    "version": 4
+}

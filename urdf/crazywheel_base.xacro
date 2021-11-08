@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+
+<robot name="crazywheel" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find rotors_description)/urdf/component_snippets.xacro" />
+  <!-- Instantiate crazyflie2 "mechanics" -->
+  <xacro:include filename="$(find rotors_description)/urdf/crazyflie2.xacro" />
+
+  <!-- Instantiate a controller.  -->
+  <xacro:controller_plugin_macro namespace="${namespace}" imu_sub_topic="imu" />
+
+  <!-- Enable the MAVLink interface. It is useful for the HIL (Hardware-in-the-loop) tests -->
+  <xacro:if value="$(arg enable_mavlink_interface)">
+    <!-- Instantiate mavlink telemetry interface. -->
+    <xacro:default_mavlink_interface namespace="${namespace}" imu_sub_topic="imu" rotor_count="4" />
+  </xacro:if>
+
+  <!-- Mount an MPU-9250 IMU -->
+  <xacro:crazyflie2_imu namespace="${namespace}" parent_link="${namespace}/base_link" />
+
+  <!-- Mount a generic odometry sensor. -->
+  <xacro:crazyflie2_odometry namespace="${namespace}" parent_link="${namespace}/base_link"  />
+
+  <!-- Mount a generic odometry sensor employed as ground truth -->
+  <xacro:if value="$(arg enable_ground_truth)">
+    <xacro:ground_truth_imu_and_odometry namespace="${namespace}" parent_link="${namespace}/base_link" />
+  </xacro:if>
+
+  <xacro:if value="$(arg enable_logging)">
+    <!-- Instantiate a logger -->
+    <xacro:bag_plugin_macro
+      namespace="${namespace}"
+      bag_file="$(arg log_file)"
+      rotor_velocity_slowdown_sim="${rotor_velocity_slowdown_sim}"
+      wait_to_record_bag="$(arg wait_to_record_bag)" />
+  </xacro:if>
+
+  <!--###################################################### -->
+  <!--# Adding the Wheels to the crazyflie2.0 = CrazyWheel # -->
+  <!--###################################################### -->
+
+    <!-- Wheel Properties -->
+  
+  <xacro:property name="wheel_track" value="0.13" /> <!-- in m-->
+  <xacro:property name="wheel_vertical_offset" value="0.015" />
+  <xacro:property name="wheel_width" value="0.003" />
+  <xacro:property name="outer_radius" value="0.065" />
+  <xacro:property name="inner_radius" value="0.062" />
+  <xacro:property name="wheel_mass" value="0.005" /> <!-- 5g-->
+  <xacro:property name="spoke_mass" value="0.00062" /> <!-- 0.62g-->
+  <xacro:property name="spokes" value="4" />
+  <xacro:property name="mesh_name" value="package://rotors_description/meshes/crazy_wheel.stl" />
+  
+  <!-- Include URDF File with Base for Wheels -->
+  <xacro:include filename="$(find rotors_description)/urdf/wheel_base.xacro" />
+
+  <link name="stand">
+
+      <visual>
+        <origin xyz="0 0 ${wheel_vertical_offset}" rpy="${M_PI/2} 0 0" />      
+        <geometry>
+          <!--<mesh filename="package://rotors_description/meshes/wheel_axis.stl" /> -->
+          <cylinder radius="0.002" length="${wheel_track}"/>
+        </geometry>
+        <material name="Grey" />
+      </visual>
+
+      <collision>
+        <origin xyz="0 0 ${wheel_vertical_offset}" rpy="${M_PI/2} 0 0" />      
+        <geometry>
+          <cylinder radius="0.002" length="${wheel_track}"/>
+        </geometry>
+      </collision>
+
+      <inertial>
+        <origin xyz="0 0 0"/>
+        <mass value="0.001" /> <!-- 1g-->
+        <cylinder_inertia m="0.001" r="0.002" h="${wheel_track}" /> 
+      </inertial>
+
+  </link>
+
+  <!-- This block provides the simulator (Gazebo) with information on a few additional
+  physical properties. See http://gazebosim.org/tutorials/?tut=ros_urdf for more -->
+  <gazebo reference="stand">
+    <mu1 value="100.0"/>
+    <kp value="1000000.0" />
+    <kd value="1.0" />
+    <material>Gazebo/Grey</material> 
+  </gazebo> 
+
+  <joint name="wheel_stand" type="fixed">
+    <parent link="${namespace}/base_link" />
+    <child link="stand"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <xacro:drone_wheel
+    robot_namespace="${namespace}" 
+    wheel_prefix="left"
+    mesh_name="${mesh_name}"
+    parent="stand"
+    flip="1">
+    <origin xyz="0 ${wheel_track/2} ${wheel_vertical_offset}" rpy="0 0 0" />
+  </xacro:drone_wheel>
+
+  <xacro:drone_wheel
+    robot_namespace="${namespace}" 
+    wheel_prefix="right"
+    mesh_name="${mesh_name}"
+    parent="stand"
+    flip="-1">
+    <origin xyz="0 ${-wheel_track/2} ${wheel_vertical_offset}" rpy="0 0 0" />
+  </xacro:drone_wheel>
+
+</robot>

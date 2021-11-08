@@ -1,0 +1,22 @@
+# PID controller gains
+
+flight_gains:
+  position_proportional: {x: 0.9, y: 0.8, z: 4.5}
+  position_derivative: {x: 1.0, y: 1.0, z: 2.6}
+  position_integral: {x: 0, y: 0, z: 0.3}
+
+  attitude_proportional: {x: 56, y: 56, z: 7.3}
+  attitude_derivative: {x: 12, y: 12, z: 5.2}
+  attitude_integral: {x: 0, y: 0, z: 0}
+
+ground_gains:
+  position: {p: 2500}
+  velocity: {p: 3800, i: 0}
+
+  attitude_proportional: {y: 156, z: 73}
+  attitude_derivative: {y: 55, z: 52}
+  attitude_integral: {y: 4}
+
+inclined_gains:
+  position: {p: 0.6, d: 0, i: 0.1}
+  velocity: {p: 3.5, d: 0.5, i: 0.5}

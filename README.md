@@ -26,7 +26,7 @@ Furthermore, if you wish to control the wheled drones with a joystick, you shoul
 + **"joy/include"** replace w/ **rotors_joy_interface/include** --> configuration files
 + **"joy/src"** replace w/ **rotors_joy_interface/src** --> corrected code to allow using a joystick to control wheeled UAVs
 
-# wheeled_drones_control
+## wheeled_drones_control
 
 This works as a separate package from the RotorS simulator and can be placed on your catkin folder. It implements a linear and a non-linear approach for the control of the wheeled UAV's and a simple path publisher.
 
@@ -43,7 +43,7 @@ Where 'name of robot' should be replaced by the desired wheeled MAV. If the argu
 > roslaunch wheeled_drones_control wheeled_mav_control.launch mav_name:=<'name of robot'>
 
 
-## Waypoint Following
+### Waypoint Following
 
 After starting one of the controllers, the robot lifts-off to (0, 0, 1) and stays hovering until a new position is received. To publish a waypoint, one can publish directly to the topic '/desired_position' or run the python script:
 
@@ -56,7 +56,7 @@ After starting one of the controllers, the robot lifts-off to (0, 0, 1) and stay
 where x y z and psi is the desired pose/position. For the inclined case, 'gamma' is the inclination of the slope and 'psi0' its orientation in the plane.
 
 
-## Landing and Taking-off
+### Landing and Taking-off
 
 To land in any surface simply run:
 

@@ -6,8 +6,7 @@ This work was a dissertation project developed to obtain the MSc in Aerospace En
   <a href="https://drive.google.com/file/d/1OVuv63CjqF6x6oheJa9JgF4hPEkpL2wt/view?usp=sharing" target="_blank"><img alt="Abstract" src="https://img.shields.io/badge/-Extended_Abstract-lightgrey?&style=for-the-badge" /></a>
 </p>
 
-![Image of Drones]
-(https://drive.google.com/file/d/1o2pt9Qk0S3X0wbcooryZi3gPn7qO1KRV/view?usp=sharing)
+![Image of Drones](https://drive.google.com/file/d/1o2pt9Qk0S3X0wbcooryZi3gPn7qO1KRV/view?usp=sharing)
 
 In order to use this repository you must have the RotorS or CrazyS Simulator set up on you local computer, follow the instructions on: 
 

@@ -6,10 +6,8 @@ This work was a dissertation project developed to obtain the MSc in Aerospace En
   <a href="https://drive.google.com/file/d/1OVuv63CjqF6x6oheJa9JgF4hPEkpL2wt/view?usp=sharing" target="_blank"><img alt="Abstract" src="https://img.shields.io/badge/-Extended_Abstract-lightgrey?&style=for-the-badge" /></a>
 </p>
 
-Employing aerial robots, acting as mobile airborne sensors, is extremely useful for many surveillance and inspection missions. Due to the strict constraints of commonly available aerial platforms, most aerial inspection missions are limited to distant perception of targets, without the possibility of coming into centimeter-range proximity or even in physical contact with them. This thesis describes a Bimodal aerial robot, consisting of a common quadrotor equipped with two passive wheels, that allows flying, approaching, landing and moving on planar and inclined surfaces, suitable for micro-level inspection of large areas. This work describes in detail the mathematical model of the passive two-wheeled quadrotor for its different modes of operation: flight, ground and inclined surfaces. Furthermore, two different motion controllers are proposed, for all three modes of locomotion, and their performance is evaluated through a series of simulated experiments that make use of the hybrid characteristics of the vehicle.
-
-
-
+![Image of Drones]
+(https://drive.google.com/file/d/1o2pt9Qk0S3X0wbcooryZi3gPn7qO1KRV/view?usp=sharing)
 
 In order to use this repository you must have the RotorS or CrazyS Simulator set up on you local computer, follow the instructions on: 
 

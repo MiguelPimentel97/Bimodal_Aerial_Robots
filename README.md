@@ -62,6 +62,9 @@ To land in any surface simply run:
 
 > rosrun path_publish.py land
 
-The controller is automatically switched to ground mode if if lands on a flat surface, and it switches to inclined mode when landing on a slope. To take-off from any surface:
+The controller is automatically switched to ground mode if if lands on a flat surface, and it switches to inclined mode when landing on a slope.
+![Image of Landing](landing.png?raw=true "Title")
+
+To take-off from any surface:
 
 > rosrun path_publish.py takeoff

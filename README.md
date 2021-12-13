@@ -71,7 +71,7 @@ To take-off from any surface:
 
 ##
 
-| Mode                      | Gains        | $x$  | $y$ | $z$  | $v$ | \varphi | $\theta$ | $\psi$ |
+| Mode                      | Gains        | $x$  | $y$ | $z$  | $v$ | \varphi | $$\theta$$ | $\psi$ |
 |---------------------------|--------------|------|-----|------|-----|---------|----------|--------|
 | \multirow{3}{*}{Flight}   | Proportional | 1.0  | 1.0 | 4.5  | --  | 56.0    | 56.0     | 7.3    |
 |                           | Derivative   | 1.2  | 1.2 | 2.6  | --  | 12.0    | 12.0     | 5.2    |

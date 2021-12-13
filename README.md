@@ -71,6 +71,9 @@ To take-off from any surface:
 
 ## Simulation Gains
 
+To check the gains we refer to ![https://github.com/MiguelPimentel97/Bimodal_Aerial_Robots/tree/main/wheeled_drones_control/resource](Resources)
+The simulation gains used for the experiments reported in the videos were the following:
+
 ### PID Controller Gains
 ```
 | Mode                      | Gains        |  x   |  y  |  z   |  v  | \varphi | \theta   |  \psi  |

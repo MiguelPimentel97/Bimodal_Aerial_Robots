@@ -71,16 +71,16 @@ To take-off from any surface:
 
 ##
 
-```
-| Mode                      | Gains        | $x$  | $y$ | $z$  | $v$ | \varphi | $$\theta$$ | $\psi$ |
+
+| Mode                      | Gains        | $x$  | $y$ | $z$  | $v$ | \varphi | $ \theta $ | $\psi$ |
 |---------------------------|--------------|------|-----|------|-----|---------|----------|--------|
-| \multirow{3}{*}{Flight}   | Proportional | 1.0  | 1.0 | 4.5  | --  | 56.0    | 56.0     | 7.3    |
-|                           | Derivative   | 1.2  | 1.2 | 2.6  | --  | 12.0    | 12.0     | 5.2    |
+|                           | Proportional | 1.0  | 1.0 | 4.5  | --  | 56.0    | 56.0     | 7.3    |
+|           Flight          | Derivative   | 1.2  | 1.2 | 2.6  | --  | 12.0    | 12.0     | 5.2    |
 |                           | Integral     | --   | --  | 0.25 | --  | --      | --       | --     |
-| \multirow{3}{*}{Ground}   | Proportional | 0.48 | --  | --   | 3.8 | --      | 15.6     | 5.5    |
-|                           | Derivative   | --   | --  | --   | --  | --      | 7.3      | 5.2    |
+|                           | Proportional | 0.48 | --  | --   | 3.8 | --      | 15.6     | 5.5    |
+|           Ground          | Derivative   | --   | --  | --   | --  | --      | 7.3      | 5.2    |
 |                           | Integral     | --   | --  | --   | 0.1 | --      | 0.4      | --     |
 | \multirow{3}{*}{Inclined} | Proportional | --   | --  | 0.55 | 3.5 | --      | 15.6     | 5.5    |
 |                           | Derivative   | --   | --  | --   | 0.1 | --      | 7.3      | 5.2    |
 |                           | Integral     | --   | --  | 0.8  | 0.6 | --      | 0.4      | --     |
-```
+

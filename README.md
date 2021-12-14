@@ -92,6 +92,8 @@ The simulation gains used for the experiments reported in the videos were the fo
 |---------------------------|--------------|------|-----|------|-----|---------|----------|--------|
 ```
 ### DFL Controller Gains
+
+The Dynamic compensator gains are:
 ```
 | Mode    | Gains | z   | \varphi | \theta | \psi |
 |---------|-------|-----|---------|--------|------|
@@ -102,6 +104,7 @@ The simulation gains used for the experiments reported in the videos were the fo
 |         | k^1   | --  | 10      | 10     | 7.5  |
 |---------|-------|-----|---------|--------|------|
 ```
+The position stabilization gains are:
 ```
 | Mode    | Gains        | x    | y    | z   | v   | Acceleration Valve | \theta Valve |
 |---------|--------------|------|------|-----|-----|--------------------|--------------|

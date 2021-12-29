@@ -3,7 +3,6 @@
 This work was a dissertation project developed to obtain the MSc in Aerospace Engineering. It consisted of a project to simulate the use of Wheeled Drones for the Inspection of Infrastructures and Surfaces. It uses a framework to easily add and test the use of wheels on different UAV's, and two motion controllers specifically designed for these type of robots. To know more you can access:
 <p>
   <a href="https://youtube.com/playlist?list=PLgG5y8BKRgZPmJshbTEFnqItOTOg3Py_f" target="_blank"><img alt="Youtube" src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" /></a>
-  <a href="https://drive.google.com/file/d/1OVuv63CjqF6x6oheJa9JgF4hPEkpL2wt/view?usp=sharing" target="_blank"><img alt="Abstract" src="https://img.shields.io/badge/-Extended_Abstract-lightgrey?&style=for-the-badge" /></a>
 </p>
 
 ![Image of Drones](bimodal_robots.jpg?raw=true "Title")
